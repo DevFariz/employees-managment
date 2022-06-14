@@ -6,25 +6,25 @@ class EmployeesListItem extends Component {
     super(props);
     this.state = {
       increase: false,
-      rise: false
+      rise: false,
     };
   }
 
   onIncrease = () => {
-    this.setState(({increase}) => ({
-        increase: !increase
-    }))
-  }
+    this.setState(({ increase }) => ({
+      increase: !increase,
+    }));
+  };
 
   addToFavorites = () => {
-    this.setState(({rise}) => ({
-        rise: !rise
-    }))
-  }
+    this.setState(({ rise }) => ({
+      rise: !rise,
+    }));
+  };
 
   render() {
     const { name, salary } = this.props;
-    const {increase, rise} = this.state;
+    const { increase, rise } = this.state;
 
     let classNames = "list-group-item d-flex justify-content-between";
     if (increase) {
@@ -32,19 +32,25 @@ class EmployeesListItem extends Component {
     }
 
     if (rise) {
-        classNames += " like";
+      classNames += " like";
     }
 
     return (
       <li className={classNames}>
-        <span onClick={this.addToFavorites} className="list-group-item-label">{name}</span>
+        <span onClick={this.addToFavorites} className="list-group-item-label">
+          {name}
+        </span>
         <input
           type="text"
           className="list-group-item-input"
           defaultValue={salary + "$"}
         />
         <div className="d-flex justify-content-center align-items-center">
-          <button type="button" className="btn-cookie btn-sm " onClick={this.onIncrease}>
+          <button
+            type="button"
+            className="btn-cookie btn-sm "
+            onClick={this.onIncrease}
+          >
             <i className="fas fa-cookie"></i>
           </button>
 
