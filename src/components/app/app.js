@@ -35,7 +35,7 @@ class App extends Component {
             name,
             salary,
             increase: false,
-            id: this.maxId++
+            id: this.maxId + 1
         }
 
         this.setState(({data}) => {
